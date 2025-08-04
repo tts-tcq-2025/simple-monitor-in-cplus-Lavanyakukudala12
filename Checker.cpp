@@ -1,9 +1,15 @@
 #include <assert.h>
 #include <iostream>
 using namespace std;
-
+bool isValueIsWithinTheRange(float value, float minValue,float maxValue){
+    if (value < minValue || value > maxValue) {
+      return true;
+    }
+  return false;
+}
+/*
 bool isTemperatureOk(float temperature) {
-  if (temperature < 0 || temperature > 45) {
+  if () {
     cout << "Temperature out of range!\n";
     return false;
   }
@@ -17,6 +23,7 @@ bool isSocOk(float soc) {
   }
   return true;
 }
+*/
 
 bool isChargeRateOk(float chargeRate) {
   if (chargeRate > 0.8) {
@@ -27,8 +34,8 @@ bool isChargeRateOk(float chargeRate) {
 }
 
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
-  return isTemperatureOk(temperature) &&
-         isSocOk(soc) &&
+  return isValueIsWithinTheRange(temperature,0,45) &&
+         isValueIsWithinTheRange(soc,20,80) &&
          isChargeRateOk(chargeRate);
 }
 
